@@ -2,6 +2,7 @@ package com.csa.domain;
 
 import com.csa.dao.AccountDao;
 
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -32,6 +33,9 @@ public class AccountService {
 
         remitterAccount.setMoney(remitterAccount.getMoney()-money);
         remitteeAccount.setMoney(remitteeAccount.getMoney()+money);
+
+        remitteeAccount.setUpdateTime(new Date(System.currentTimeMillis()));
+        remitteeAccount.setUpdateTime(new Date(System.currentTimeMillis()));
 
         account.updateByPrimaryKey(remitterAccount);
         account.updateByPrimaryKey(remitteeAccount);

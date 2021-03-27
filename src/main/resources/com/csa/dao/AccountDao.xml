@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csa.dao.AccountDao">
+    <!-- 配置查询所有 -->
+    <select id="findAll" resultType="com.csa.domain.Account">
+        select * from Account
+    </select>
+
+    <insert id="insert" parameterType="com.csa.domain.Account">
+        insert into Account(id,name,money,createTime,updateTime)values(#{id},#{name},#{money},#{createTime},#{updateTime})
+    </insert>
+
+    <delete id="deleteByPrimaryKey" parameterType="string">
+        delete from where id like #{Aid};
+    </delete>
+
+    <select id="selectByPrimaryKey" parameterType="string" resultType="com.csa.domain.Account">
+        select * from Account where id like #{Aid};
+    </select>
+
+    <update id="updateByPrimaryKey" parameterType="com.csa.domain.Account">
+        update Account set name=#{name},money=#{money},createTime=#{createTime},updateTime=#{updateTime} where id=#{id};
+    </update>
+</mapper>
